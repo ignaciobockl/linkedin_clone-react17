@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Feed from './components/AppBody/Feed/Feed';
 import Header from './components/Header/Header';
 import Sidebar from './components/AppBody/Sidebar';
 
@@ -20,7 +21,7 @@ const App = () => {
                 <Sidebar />
 
                 {/* Feed */}
-
+                <Feed />
 
                 {/* Widgets */}
 
