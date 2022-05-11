@@ -7,6 +7,7 @@ const appId = process.env.REACT_APP_FIREBASE_APPID;
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import Swal from "sweetalert2";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,5 +21,15 @@ const firebaseConfig = {
   appId: appId,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+try {
+  
+    // Initialize Firebase
+    const firebaseApp = initializeApp(firebaseConfig);
+    const db = firebaseApp.firestore();
+    const auth = firebaseApp.auth();
+
+} catch (error) {
+    Swal.fire('Error', error.toString(), 'error');
+}
+
+export { db, auth };
