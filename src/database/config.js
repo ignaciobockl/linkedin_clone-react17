@@ -21,25 +21,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
-// export async function getPosts() {
-//     const postCol = collection(db, 'posts');
-//     const postSnapshot = await getDocs(postCol);
-//     const postList = postSnapshot.docs.map(doc => doc.data());
-//     return postList;
-// }
-
-// export async function addPost( name='Ignacio Bockl', description='This is a test post', message='WOW this worked post', photoUrl='' ) {
-//     const post = await db.collection(db, 'posts').add({
-//         name,
-//         description,
-//         message,
-//         photoUrl,
-//         timestamp: FieldValue.serverTimestamp()
-//     });
-//     return post;
-// }
 
 
 export const addPost = async( name='Ignacio Bockl', description='This is a test post', message='WOW this worked post', photoUrl='' ) => {
