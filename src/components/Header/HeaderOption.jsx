@@ -6,9 +6,9 @@ import './HeaderOption.css';
 
 
 
-const HeaderOption = ({ avatar, Icon, title }) => {
+const HeaderOption = ({ avatar, Icon, title, onClick }) => {
     return (
-        <div className='headerOption'>
+        <div className='headerOption' onClick={ onClick }>
             {
                 Icon &&
                 <Icon className='headerOption__icon'/>

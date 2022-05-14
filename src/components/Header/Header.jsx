@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -9,11 +10,23 @@ import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 import HeaderOption from './HeaderOption';
 
+import { auth } from '../../database/firebase';
+
+import { logout } from '../../features/userSlice';
+
 import './Header.css';
 
 
 
 const Header = () => {
+
+    const dispatch = useDispatch()
+
+    const logoutOfApp = () => {
+        dispatch(logout());
+        auth.signOut();
+    }
+
     return (
         <div className='header'>
 
@@ -25,7 +38,7 @@ const Header = () => {
                 />
                 <div className="header__search">
                     <SearchIcon />
-                    <input type='text'/>
+                    <input placeholder='Search' type='text'/>
                 </div>
             </div>
 
@@ -37,6 +50,7 @@ const Header = () => {
                 <HeaderOption Icon={ NotificationsIcon } title='Notifications'/>
                 <HeaderOption 
                     avatar='https://img1.freepng.es/20180626/ehy/kisspng-avatar-user-computer-icons-software-developer-5b327cc951ae22.8377289615300354013346.jpg'
+                    onClick={ logoutOfApp }
                     title='me'
                 />
             </div>
