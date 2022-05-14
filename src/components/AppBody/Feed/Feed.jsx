@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from 'firebase';
+import FlipMove from 'react-flip-move';
 
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import CreateIcon from '@mui/icons-material/Create';
@@ -13,10 +14,14 @@ import Post from './Post';
 import { db } from '../../../database/firebase';
 
 import './Feed.css';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../features/userSlice';
 
 
 
 const Feed = () => {
+
+    const user = useSelector( selectUser );
 
     const [ input, setInput ] = useState('');
     const [ posts, setPosts ] = useState([]);
@@ -43,10 +48,10 @@ const Feed = () => {
         e.preventDefault();
 
         db.collection('posts').add({
-            name: 'Ignacio Bockl',
-            description: 'this is a test description',
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: '',
+            photoUrl: user.photoURL || '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
 
@@ -77,18 +82,19 @@ const Feed = () => {
             </div>
 
             {/* Posts */}
-            {
-
-                posts.map(({ id, data: { name, description, message, photoUrl } }) => (
-                    <Post 
-                        key={ id }
-                        name={ name }
-                        description={ description }
-                        message={ message }
-                        photoUrl={ photoUrl }
-                    />
-                ))
-            }
+            <FlipMove>
+                {
+                    posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+                        <Post 
+                            key={ id }
+                            name={ name }
+                            description={ description }
+                            message={ message }
+                            photoUrl={ photoUrl }
+                        />
+                    ))
+                }
+            </FlipMove>
 
         </div>
     )
