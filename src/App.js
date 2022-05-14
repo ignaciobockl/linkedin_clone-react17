@@ -12,19 +12,14 @@ const App = () => {
     return (
         <div className='app'>
 
-            {/* Header */}
             <Header />
 
-            {/* App Body */}
             <div className='app__body'>
-                {/* Sidebar */}
                 <Sidebar />
 
-                {/* Feed */}
                 <Feed />
 
                 {/* Widgets */}
-
 
             </div>
 
