@@ -20,7 +20,7 @@ import './Header.css';
 
 const Header = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const logoutOfApp = () => {
         dispatch(logout());
@@ -49,7 +49,7 @@ const Header = () => {
                 <HeaderOption Icon={ ChatIcon } title='Messaging'/>
                 <HeaderOption Icon={ NotificationsIcon } title='Notifications'/>
                 <HeaderOption 
-                    avatar='https://img1.freepng.es/20180626/ehy/kisspng-avatar-user-computer-icons-software-developer-5b327cc951ae22.8377289615300354013346.jpg'
+                    avatar={ true }
                     onClick={ logoutOfApp }
                     title='me'
                 />

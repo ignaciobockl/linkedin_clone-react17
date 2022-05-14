@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import firebase from 'firebase';
 import FlipMove from 'react-flip-move';
 
@@ -13,9 +15,9 @@ import Post from './Post';
 
 import { db } from '../../../database/firebase';
 
-import './Feed.css';
-import { useSelector } from 'react-redux';
 import { selectUser } from '../../../features/userSlice';
+
+import './Feed.css';
 
 
 
