@@ -4,3 +4,4 @@
 4_option: Use an existing project
 5_select project
 6_build - yes - no
+7_firebase deploy
