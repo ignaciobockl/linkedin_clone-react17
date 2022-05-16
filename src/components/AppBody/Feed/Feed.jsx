@@ -42,8 +42,6 @@ const Feed = () => {
         );
         
     }, []);
-    
-    console.log('posts:',posts)
 
     const sendPost = (e) => {
 
